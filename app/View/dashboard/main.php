@@ -1,125 +1,267 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="<?= URL_DIR ?>public/assets/css/style.css">
-    <link rel="stylesheet" href="<?= URL_DIR ?>public/assets/dist/output.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="<?= URL_DIR ?>public/assets/css/dashboard.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="dark:bg-gray-900">
-
-    <!-- Navbar  -->
-    <?php include "../app/View/includes/nav_dash.php"; ?>
-    <!-- Navbar  -->
-
-
-    <!-- Navbar  -->
-    <?php include "../app/View/includes/aside_dash.php"; ?>
-    <!-- Navbar  -->
-
-    <main class="mt-14 p-12 ml-0 smXl:ml-64 dark:border-gray-700">
-        <h1 class="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white">
-            Stats <span class="text-orange-500">XXX</span>
-        </h1>
-        <div class="cards flex flex-wrap justify-center tablet:justify-between gap-6 mb-12">
-            <div class="bg-white dark:bg-gray-800 card border border-[#D9D9DE] dark:border-gray-700 w-full max-w-[20rem] tablet:max-w-[15rem] p-5 rounded-xl">
-                <div class="icon_container mb-9">
-                    <span class="h-9 w-9 bg-[#CAFFF2] rounded-full flex justify-center items-center">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 5.83333L10 1.66667L2.5 5.83333V14.1667L10 18.3333L17.5 14.1667V5.83333ZM10 12.7778C11.5943 12.7778 12.8868 11.5341 12.8868 10C12.8868 8.46588 11.5943 7.22222 10 7.22222C8.40569 7.22222 7.11325 8.46588 7.11325 10C7.11325 11.5341 8.40569 12.7778 10 12.7778Z" stroke="#00373E" stroke-width="2" stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                </div>
-                <div class="data_container flex justify-between">
-                    <div class="left">
-                        <p class="font-bold dark:text-gray-200 text-lg font-inter">XXX</p>
-                        <p class="font-medium text-[#7F7D83] font-inter">Total Teams</p>
-                    </div>
-
-                    <div class="right pr-2 pl-2 bg-green-100 w-fit rounded-lg flex items-center border border-green-300">
-                        <span class="text-green-800 font-inter text-xl">+5.6%</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white dark:bg-gray-800 card border border-[#D9D9DE] dark:border-gray-700 w-full max-w-[20rem] tablet:max-w-[15rem] p-5 rounded-xl">
-                <div class="icon_container mb-9">
-                    <span class="h-9 w-9 bg-[#FFD58F] rounded-full flex justify-center items-center">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 5.83333L10 1.66667L2.5 5.83333V14.1667L10 18.3333L17.5 14.1667V5.83333ZM10 12.7778C11.5943 12.7778 12.8868 11.5341 12.8868 10C12.8868 8.46588 11.5943 7.22222 10 7.22222C8.40569 7.22222 7.11325 8.46588 7.11325 10C7.11325 11.5341 8.40569 12.7778 10 12.7778Z" stroke="#B27104" stroke-width="2" stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                </div>
-
-                <div class="data_container flex justify-between">
-                    <div class="left">
-                        <p class="font-bold dark:text-gray-200 text-lg font-inter">XXX</p>
-                        <p class="font-medium text-[#7F7D83] font-inter">
-                            Total Matches
-                        </p>
-                    </div>
-
-                    <div class="right pr-2 pl-2 bg-red-100 w-fit rounded-lg flex items-center border border-red-300">
-                        <span class="text-red-800 font-inter text-xl">-1.16%</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white dark:bg-gray-800 card border border-[#D9D9DE] dark:border-gray-700 w-full max-w-[20rem] tablet:max-w-[15rem] p-5 rounded-xl">
-                <div class="icon_container mb-9">
-                    <span class="h-9 w-9 bg-[#EBF1FD] rounded-full flex justify-center items-center">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 5.83333L10 1.66667L2.5 5.83333V14.1667L10 18.3333L17.5 14.1667V5.83333ZM10 12.7778C11.5943 12.7778 12.8868 11.5341 12.8868 10C12.8868 8.46588 11.5943 7.22222 10 7.22222C8.40569 7.22222 7.11325 8.46588 7.11325 10C7.11325 11.5341 8.40569 12.7778 10 12.7778Z" stroke="#2080F6" stroke-width="2" stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                </div>
-
-                <div class="data_container flex justify-between">
-                    <div class="left">
-                        <p class="font-bold dark:text-gray-200 text-lg font-inter">XXX</p>
-                        <p class="font-medium text-[#7F7D83] font-inter">Total Stadiums</p>
-                    </div>
-
-                    <div class="right pr-2 pl-2 bg-green-100 w-fit rounded-lg flex items-center border border-green-300">
-                        <span class="text-green-800 font-inter text-xl">+10.05%</span>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="bg-white dark:bg-gray-800 card border border-[#D9D9DE] dark:border-gray-700 w-full max-w-[20rem] tablet:max-w-[15rem] p-5 rounded-xl">
-                <div class="icon_container mb-9">
-                    <span class="h-9 w-9 rounded-full flex justify-center items-center">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 5.83333L10 1.66667L2.5 5.83333V14.1667L10 18.3333L17.5 14.1667V5.83333ZM10 12.7778C11.5943 12.7778 12.8868 11.5341 12.8868 10C12.8868 8.46588 11.5943 7.22222 10 7.22222C8.40569 7.22222 7.11325 8.46588 7.11325 10C7.11325 11.5341 8.40569 12.7778 10 12.7778Z" stroke="#802c98" stroke-width="2" stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                </div>
-
-                <div class="data_container flex justify-between">
-                    <div class="left">
-                        <p class="font-bold dark:text-gray-200 text-lg font-inter">XXX</p>
-                        <p class="font-medium text-[#7F7D83] font-inter">Total </p>
-                    </div>
-
-                    <div class="right pr-2 pl-2 bg-green-100 w-fit rounded-lg flex items-center border border-green-300">
-                        <span class="text-green-800 font-inter text-xl">+9.3%</span>
-                    </div>
-                </div>
-            </div> -->
+<body>
+  <div class="wrapper">
+    <aside id="sidebar" class="side">
+      <div class="h-100">
+        <div class="sidebar_logo d-flex align-items-end">
+          <img src="<?= URL_DIR ?>public/assets/images/PeoplePerTask.png" alt="logo" style="width: 75%;">
+          <!-- <a href="#" class="nav-link text-white-50">Dashboard</a> -->
+          <img class="close align-self-start" src="<?= URL_DIR ?>public/assets/images/close.svg" alt="">
         </div>
 
-        <div class="bg-white dark:bg-gray-800 border border-[#D9D9DE] dark:border-gray-700 rounded-xl p-8 mb-12">
+        <ul class="sidebar_nav" style="max-height: 80vh; overflow-y: auto;">
+          
+            <li class="sidebar_item active" style="width: 100%;">
+              <a href="dashboard.php" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/1. overview.svg" alt="">Overview</a>
+            </li>
 
+            <li class="sidebar_item">
+              <a href="users" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">Users</a>
+            </li>
+
+            <li class="sidebar_item">
+              <a href="categories" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">Categories</a>
+            </li>
+            <li class="sidebar_item">
+              <a href="tags" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">tags</a>
+            </li>
+           
+          <li class="sidebar_item">
+            <span><a href="logout.php" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
+                OUT</a></span>
+          </li>
+
+
+        </ul>
+        <div class="line"></div>
+        <a href="#" class="sidebar_link"><img src="<?= URL_DIR ?>public/assets/images/settings.svg" alt="">Settings</a>
+
+
+      </div>
+    </aside>
+    <div class="main">
+      <nav class="navbar justify-content-space-between pe-4 ps-2">
+        <button class="btn open">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar gap-4">
+          <div class="">
+            <input type="search" class="search" placeholder="Search" />
+            <img class="search_icon" src="<?= URL_DIR ?>public/assets/images/search.svg" alt="iconicon" />
+          </div>
+          <!-- <img src="img/search.svg" alt="icon"> -->
+          <img class="notification" src="<?= URL_DIR ?>public/assets/images/new.svg" alt="icon" />
+          <div class="card new w-auto">
+            <div class="list-group list-group-light">
+              <div class="list-group-item px-3 d-flex justify-content-between align-items-center">
+                <p class="mt-auto">Notification</p>
+                <a href="#"><img src="<?= URL_DIR ?>public/assets/images/settingsno.svg" alt="icon" /></a>
+              </div>
+              <div class="list-group-item px-3 d-flex">
+                <img src="<?= URL_DIR ?>public/assets/images/notif.svg" alt="iconimage" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text mb-3">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <small class="card-text">1 day ago</small>
+                </div>
+              </div>
+              <div class="list-group-item px-3 d-flex">
+                <img src="<?= URL_DIR ?>public/assets/images/notif.svg" alt="iconimage" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text mb-3">
+                    Some quick example text to build on the card title and
+                    make up the bulk of the card's content.
+                  </p>
+                  <small class="card-text">1 day ago</small>
+                </div>
+              </div>
+              <div class="list-group-item px-3 text-center">
+                <a href="#">View all notifications</a>
+              </div>
+            </div>
+          </div>
+          <div class="inline"></div>
+          <div class="name">
+            Med
+          </div>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-icon pe-md-0 position-relative" data-bs-toggle="dropdown">
+                <img src="<?= URL_DIR ?>public/assets/images/photo_admin.svg" alt="icon" />
+              </a>
+              <div class="dropdown-menu dropdown-menu-end position-absolute">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Account Setting</a>
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <section class="overview">
+        <div class="row p-5">
+          <div class="d-flex flex-row column-gap-5">
+
+          </div>
+        </div>
+      </section>
+      <div class="px-4">
+        <div class="card mb-3">
+          <div class="row g-0 px-2">
+            <div class="col-xl-8 col-md-12 col-sm-12 col-12 p-4">
+              <div>
+                <h4>Today’s trends</h4>
+                <p>as of 27 oct 2023, 22:48 PM</p>
+              </div>
+              <div class="w-100" id="chart"></div>
+            </div>
+            <div class="col-xl-4 col-md-12 col-sm-12 col-12">
+              <div class="list-group h-100 text-center">
+                <div class="list-group-item row h-20">
+                  <p>Cras justo odio</p>
+                  <p>449</p>
+                </div>
+                <div class="list-group-item row h-20">
+                  <p>Dapibus ac facilisis in</p>
+                  <p>449</p>
+                </div>
+                <div class="list-group-item row h-20">
+                  <p>Vestibulum at eros</p>
+                  <p>449</p>
+                </div>
+                <div class="list-group-item row h-20">
+                  <p>Dapibus ac facilisis in</p>
+                  <p>449</p>
+                </div>
+                <div class="list-group-item row h-20">
+                  <p>Vestibulum at eros</p>
+                  <p>449</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4 row">
+        <div class="col-xl-6 col-md-12 col-sm-12 col-12">
+          <div class="card">
+            <div class="row p-4">
+              <div class="col">
+                <p class="title">Unresolved tickets</p>
+                <p><span>Group:</span> Support</p>
+              </div>
+              <a class="col d-flex justify-content-end fw-medium" href="#">View details</a>
+            </div>
+            <div class="list-group">
+              <div class="list-group-item px-3 text d-flex justify-content-between align-items-center p-4">
+                <p>Cras justo odio</p>
+                <p>4444</p>
+              </div>
+              <div class="list-group-item px-3 text d-flex justify-content-between align-items-center p-4">
+                <p>Dapibus ac facilisis in</p>
+                <p>4444</p>
+              </div>
+              <div class="list-group-item px-3 text d-flex justify-content-between align-items-center p-4">
+                <p>Vestibulum at eros</p>
+                <p>4444</p>
+              </div>
+              <div class="list-group-item px-3 text d-flex justify-content-between align-items-center p-4">
+                <p>Vestibulum at eros</p>
+                <p>4444</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-md-12 col-sm-12 col-12">
+          <div class="card">
+            <div class="row p-4">
+              <div class="col">
+                <p class="title">Tasks</p>
+                <p>Today</p>
+              </div>
+              <a class="col d-flex justify-content-end fw-medium" href="#">View all</a>
+            </div>
+            <div class="Admin_task list-group">
+              <div class="list-group-item px-3 text d-flex justify-content-between align-items-center p-4">
+                <p>Create new task</p>
+                <img class="cursor" id="add_admin_task" src="<?= URL_DIR ?>public/assets/images/inactive.svg" alt="icon" />
+              </div>
+              <div class="list-group-item px-3 text d-flex justify-content-between align-items-center p-4">
+                <p>Finish task update</p>
+                <img src="<?= URL_DIR ?>public/assets/images/warning.svg" alt="icon" />
+              </div>
+              <div class="list-group-item px-3 text d-flex justify-content-between align-items-center p-4">
+                <p>Create new task example</p>
+                <img src="<?= URL_DIR ?>public/assets/images/successnew.svg" alt="icon" />
+              </div>
+              <div class="list-group-item px-3 text d-flex justify-content-between align-items-center p-4">
+                <p>Update cliens report</p>
+                <img src="<?= URL_DIR ?>public/assets/images/default.svg" alt="icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- edit modal -->
+  <div class="modal">
+    <div class="modal-content">
+      <form id="forms">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="mb-4">
+          <label class="form-label">Task description</label>
+          <input type="text" class="form-control task-desc" />
         </div>
 
-    </main>
+        <!-- select input -->
+        <div class="mb-4">
+          <label class="form-label">Status</label>
+          <select class="form-control" name="task status" id="status">
+            <option value="<?= URL_DIR ?>public/assets/images/default.svg">Default</option>
+            <option value="<?= URL_DIR ?>public/assets/images/successnew.svg">New</option>
+            <option value="<?= URL_DIR ?>public/assets/images/warning.svg">Urgent</option>
+          </select>
+        </div>
 
-
-
-    <!-- / For dark mode -->
-    <script src="<?= URL_DIR ?>public/assets/js/darkmode.js"></script>
-    <!-- / For navbar mobile -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+        <div class="d-flex w-100 justify-content-center">
+          <button type="submit" class="btn btn-success btn-block mb-4 me-4 save">
+            Save Edit
+          </button>
+          <div class="btn btn-danger btn-block mb-4 annuler">Annuler</div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="<?= URL_DIR ?>public/assets/js/dashboard.js"></script>
+  <script src="<?= URL_DIR ?>public/assets/js/script.js"></script>
 </body>
 
 </html>

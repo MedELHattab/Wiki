@@ -1,7 +1,6 @@
 <?php 
-define('URL_DIR', 'http://localhost/stadium_stream_Test/');
+define('URL_DIR', 'http://localhost/Wiki/');
 require "../vendor/autoload.php";
 require "../router/Router.php";
 
 
-// require '../database/Connection.php';

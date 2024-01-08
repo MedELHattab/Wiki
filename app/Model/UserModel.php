@@ -10,10 +10,7 @@ class UserModel extends Crud
     public function readUser()
     {
         try {
-            $query = "SELECT * FROM users
-            INNER JOIN  roles 
-            ON users.RoleID = roles.RoleID
-            ;";
+            $query = "SELECT * FROM users";
             $stmt = $this->pdo->query($query);
 
             $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
