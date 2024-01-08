@@ -1,22 +1,22 @@
 {
-    "name": "youcode/stadium-stream",
+    "name": "elhattab/wiki",
     "autoload": {
         "psr-4": {
             "App\\" : "app/",
             "router\\" : "router/",
-            "config\\" : "database/"       
-         }
+            "config\\" : "database/"
+        }
     },
     "authors": [
         {
             "name": "Mohammed Elarbi El Hattab",
-            "email": "elhattabmohammedelarbi@gmail.com"
+            "email": "elhattabmohammedelarbi@gmail.com.com"
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "5.6",
-        "phpmailer/phpmailer": "6.9",
-        "nesbot/carbon": "2.72",
-        "paypal/rest-api-sdk-php": "*"
+        "vlucas/phpdotenv": "^5.6",
+        "phpmailer/phpmailer": "^6.9",
+        "nesbot/carbon": "^2.72",
+        "symfony/var-dumper": "^6.4"
     }
 }

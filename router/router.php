@@ -1,6 +1,7 @@
 <?php
 
 namespace router;
+
 class Router
 {
     private string $controller = 'App\Controller\HomeController';
@@ -12,13 +13,13 @@ class Router
         $this->Sender();
     }
 
-    public function Sender():void
+    public function Sender(): void
     {
-        $uri= $_SERVER['REQUEST_URI'] ?? '';
+        $uri = $_SERVER['REQUEST_URI'] ?? '';
         $uri = explode('/', trim(strtolower($uri), '/'));
         unset($uri[0]);
         if (!empty($uri[1])) {
-            $controller = ucwords($uri[1] ) . 'Controller';
+            $controller = ucwords($uri[1]) . 'Controller';
             unset($uri[1]);
             $controller = "App\Controller\\" . $controller;
             if (class_exists($controller)) {

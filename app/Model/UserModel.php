@@ -7,54 +7,34 @@ use PDOException;
 
 class UserModel extends Crud
 {
-    public function displayusers()
-    {
-        return $this->read('user');
-    }
-
-    public function createUser($userData)
+    public function readUser()
     {
         try {
-            //insert data into user table
-            $userCreated = $this->create('user', $userData) !== false;
-            if ($userCreated) {
-                //retrieve the userID
-                $userID = $this->pdo->lastInsertId();
-                //insert data into user_role table
-                $userRoleData = [
-                    'user_id' => $userID,
-                    'role_id' => 1
-                ];
-                $userRoleCreated = $this->create('user_role', $userRoleData) !== false;
-                return $userRoleCreated;
-            } else {
-                return false;
-            }
+            $query = "SELECT * FROM users
+            INNER JOIN  roles 
+            ON users.RoleID = roles.RoleID
+            ;";
+            $stmt = $this->pdo->query($query);
 
+            $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $records; // Return the fetched records
         } catch (PDOException $e) {
-            echo "PDO Exception: " . $e->getMessage();
-            return false;
+            echo "Error fetching records: " . $e->getMessage();
+            return []; // Return an empty array in case of an error
         }
     }
-
-    public function signin($email)
+    public function deleteUser($id)
     {
-        try {
-            $stmt = $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo 'Database Error: ' . $e->getMessage();
-            exit();
-        }
+        $tableName = 'users';
+        $this->delete($tableName, $id);
+        header('Location: ../../users');
     }
-    public function getUserById($userId)
+    public function editUser($data, $id)
     {
-        return $this->getRecordById('user', $userId);
-    }
-    public function updateUser($userId, $userData)
-    {
-        return $this->update('user', $userData, $userId) !== false;
+        $tableName = 'users';
+        $redirect = URL_DIR . 'users';
+        $this->update($tableName, $data, $id);
+        header("Location: $redirect");
     }
 }
