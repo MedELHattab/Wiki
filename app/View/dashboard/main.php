@@ -124,7 +124,77 @@
       <section class="overview">
         <div class="row p-5">
           <div class="d-flex flex-row column-gap-5">
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between px-md-1 gap-3 ">
+                                    <div>
+                                        <p class="mb-0">Users</p>
+                                        <div class="mt-4">
+                                            <h3><strong></strong></h3>
+                                            <p><strong><?php  echo $totalUsers ?></strong> </p>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <img src="<?= URL_DIR ?>public/assets/images/project-icon-3.svg" alt="icon">
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
+          
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between px-md-1 gap-3 ">
+                                    <div>
+                                        <p class="mb-0">Categories</p>
+                                        <div class="mt-4">
+                                            <h3><strong></strong></h3>
+                                            <p><strong><?php  echo $totalCategories ?></strong> </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="<?= URL_DIR ?>public/assets/images/project-icon-3.svg" alt="icon">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+         
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between px-md-1 gap-3">
+                                    <div>
+                                        <p class="mb-0">Tags</p>
+                                        <div class="mt-4">
+                                            <h3><strong></strong></h3>
+                                            <p><strong><?php  echo $totalTags ?></strong> </p>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <img src="<?= URL_DIR ?>public/assets/images/project-icon-3.svg" alt="icon">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+          
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between px-md-1 gap-3">
+                                    <div>
+                                        <p class="mb-0">Wikis</p>
+                                        <div class="mt-4">
+                                            <h3><strong></strong></h3>
+                                            <p><strong><?php  echo $totalWikis ?></strong> </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="<?= URL_DIR ?>public/assets/images/project-icon-3.svg" alt="icon">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
           </div>
         </div>
       </section>

@@ -19,7 +19,7 @@ class TagsController
     }
 
     
-    public function editTags(){
+    public function edit(){
         $tags = new TagModel();
         $id = $_POST['id'];
         unset($_POST['id']);

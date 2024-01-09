@@ -37,4 +37,17 @@ class WikiModel extends Crud
         $this->update($tableName, $data, $id);
         header("Location: $redirect");
     }
+    public function updateWikiState($wikiId, $status)
+    {
+        try {
+            $stmt = $this->pdo->prepare("UPDATE wikis SET status = :status WHERE id = :id");
+            $stmt->bindParam(':status', $status);
+            $stmt->bindParam(':id', $wikiId);
+            $stmt->execute();
+            return true; // Update successful
+        } catch (PDOException $e) {
+            echo "Error fetching records: " . $e->getMessage();
+            return []; // Return an empty array in case of an error
+        }
+    }
 }

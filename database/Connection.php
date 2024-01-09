@@ -33,10 +33,7 @@ class Connection
             $this->dsn = "mysql:host=$this->host;dbname=$this->db";
             $this->pdo = new PDO($this->dsn, $this->username, $this->password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // return $this->pdo; // You may or may not return the PDO instance
-            // if ($this->pdo) {
-            //     echo "Connected to the $this->db database successfully!";
-            // }
+           
         } catch (PDOException $e) {
             echo "Error Connection: " . $e->getMessage();
         }
