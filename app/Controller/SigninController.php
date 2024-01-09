@@ -10,13 +10,13 @@ class SigninController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
             
-            $AdresseEmail = $_POST['AdresseEmail'];
-            $MotDePasse = $_POST['MotDePasse'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
 
 
             $signinModel = new SigninModel();
 
-            $user = $signinModel->authenticateUser($AdresseEmail, $MotDePasse);
+            $user = $signinModel->authenticateUser($email, $password);
 
             
 
@@ -24,8 +24,8 @@ class SigninController
                 session_start();
 
                 // Store user information in session variables
-                $_SESSION['user_id'] = $user['id']; 
-                $_SESSION['user_email'] = $user['AdresseEmail'];
+                $_SESSION['id'] = $user['id']; 
+                $_SESSION['email'] = $user['email'];
                 
                 header("Location:./users");
                 exit();

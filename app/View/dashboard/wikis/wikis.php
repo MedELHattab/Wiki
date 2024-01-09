@@ -38,10 +38,10 @@
               <a href="users" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">Users</a>
             </li>
 
-            <li class="sidebar_item active">
+            <li class="sidebar_item">
               <a href="categories" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">Categories</a>
             </li>
-            <li class="sidebar_item">
+            <li class="sidebar_item active">
               <a href="wikis" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">wikis</a>
             </li>
             <li class="sidebar_item">
@@ -133,19 +133,23 @@
 
                     <thead class="bg-light">
                         <tr>
-                            <th>Categorie_ID</th>
-                            <th>Categorie</th>
-                            <th>Update</th>
-                            <th>Delete</th>
+                            <th>Wiki_ID</th>
+                            <th>wiki_title</th>
+                            <th>Content</th>
+                            <th>Author</th> 
+                            <th>Categorie</th> 
+                            <th>State</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($categories as $categorie) { ?>
+                    <?php foreach ($wikis as $wiki) { ?>
                                         <tr class="border-b dark:border-gray-700">
-                                            <td class="px-4 py-3 text-center"><?= $categorie['id'] ?></td>
-                                            <td class="px-4 py-3 text-center"><?= $categorie['Categorie_Name'] ?></td>
-                                    <td><a href="categories/update/<?=$categorie['id']?>" class="btn btn-success">Update</a></td>
-                                    <td><a href="categories/delete/<?=$categorie['id']?>" class="btn btn-danger">Delete</a></td>
+                                            <td class="px-4 py-3 text-center"><?= $wiki['id'] ?></td>
+                                            <td class="px-4 py-3 text-center"><?= $wiki['wiki_title'] ?></td>
+                                            <td class="px-4 py-3 text-center"><?= $wiki['content'] ?></td>
+                                            <td class="px-4 py-3 text-center"><?= $wiki['name'] ?> </td>
+                                            <td class="px-4 py-3 text-center"><?= $wiki['Categorie_Name'] ?> </td>
+                                    <td><a href="wikis/state/<?=$wiki['id']?>" class="btn btn-success">State</a></td>
                                 </tr>
                                 <?php
                             }                        

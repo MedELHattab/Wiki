@@ -14,15 +14,15 @@ class UsersController
     }
     public function delete($id)
     {
-        $teams = new UserModel();
-        $teams->deleteUser($id);
+        $users = new UserModel();
+        $users->deleteUser($id);
     }
 
     
     public function editUser(){
-        $teams = new UserModel();
+        $users = new UserModel();
         $id = $_POST['id'];
         unset($_POST['id']);
-        $teams->editUser($_POST, $id);
+        $users->editUser($_POST, $id);
     }
 }

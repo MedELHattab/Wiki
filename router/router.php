@@ -4,7 +4,7 @@ namespace router;
 
 class Router
 {
-    private string $controller = 'App\Controller\HomeController';
+    private string $controller = 'App\Controller\SignupController';
     private string $method = 'index';
     private array $params = array();
 

@@ -6,21 +6,21 @@ use PDOException;
 
 class SigninModel extends Crud
 {
-    public function authenticateUser($AdresseEmail, $MotDePasse)
+    public function authenticateUser($email, $password)
     {
         try {
             $tableName = "users";
-            $query = "SELECT * FROM $tableName WHERE AdresseEmail = :AdresseEmail";
+            $query = "SELECT * FROM $tableName WHERE email = :email";
 
             $stmt = $this->pdo->prepare($query);
-            $stmt->bindParam(":AdresseEmail", $AdresseEmail, \PDO::PARAM_STR);
+            $stmt->bindParam(":email", $email, \PDO::PARAM_STR);
             $stmt->execute();
 
             $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
             if ($user) {
                 // Verify hashed password
-                if (password_verify($MotDePasse, $user['MotDePasse'])) {
+                if (password_verify($password, $user['password'])) {
                     // Authentication successful
                     echo "User authenticated successfully!";
                     return $user;

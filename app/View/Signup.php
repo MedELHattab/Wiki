@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StadiumStream</title>
-    <meta name="keywords" content="HTML, CSS, Youcode, tailwindCSS, StadiumStream, CAN24">
-    <meta name="description" content="StadiumStream to Sell Football tickets">
+    <title>Wiki</title>
+    <meta name="keywords" content="HTML, CSS, Youcode, tailwindCSS, Wiki, Wiki">
+    <meta name="description" content=" Wiki for new wikis">
 
     <link rel="stylesheet" href="public/assets/css/style.css">
     <link rel="stylesheet" href="public/assets/dist/output.css">
@@ -39,14 +39,14 @@
                     stroke="currentColor" class="h-4 w-4 mt-6 org-text-primary">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
                 </svg>
-                <div class="p-4" style="border-bottom: 2px solid #FF6E01;">Retour</div>
+                <div class="p-4" style="border-bottom: 2px solid #FF6E01;"><a href="Signin">Retour</a></div>
             </button>
         </div>
     </div>
     <div class="border-black py-8 px-4 mb-20 mt-4 mx-[7em] border">
-        <div class="flex gap-x-4 justify-center"><a href="/signin" class="opacity-20"><span
+        <div class="flex gap-x-4 justify-center"><a href="Signin" class="opacity-20"><span
                     class="org-text-shadow-disabled opacity-40 uppercase mt-8 md:ml-8 font-bold text-black text-xs md:text-lg">Déjà
-                    Membre</span></a><a aria-current="page" href="/signup"
+                    Membre</span></a><a aria-current="page" href="Signup"
                 class="router-link-active router-link-exact-active"><span
                     class="org-text-shadow uppercase mt-8 md:ml-8 font-bold text-black text-xs md:text-lg" style="border-bottom: 2px solid #FF6E01;">Nouveau
                     Compte</span></a></div><!----><!---->
@@ -58,17 +58,17 @@
                                 class="opacity-40 org-text-primary sr-only">Email</label>
                             <div class="flex"><input id="email"
                                     class="text-base md:text-sm border-b w-full focus:outline-none border-gray-400 text-gray-700 placeholder-gray-800"
-                                    name="AdresseEmail" type="email" autocomplete="on" placeholder="Email *"><!----></div>
+                                    name="email" type="email" autocomplete="on" placeholder="Email *"><!----></div>
                             <!---->
                         </div>
                     </div>
 
                     <div><!---->
-                        <div class="mb-6 relative"><label for="familyName"
+                        <div class="mb-6 relative"><label for="Name"
                                 class="opacity-40 org-text-primary sr-only">Nom</label>
-                            <div class="flex"><input id="familyName"
+                            <div class="flex"><input id="Name"
                                     class="text-base md:text-sm border-b w-full focus:outline-none border-gray-400 text-gray-700 placeholder-gray-800"
-                                    name="Nom" type="text" autocomplete="on" placeholder="Nom *"><!----></div>
+                                    name="name" type="text" autocomplete="on" placeholder="Nom *"><!----></div>
                             <!---->
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                                 passe</label>
                             <div class="flex"><input id="password"
                                     class="text-base md:text-sm border-b w-full focus:outline-none border-gray-400 text-gray-700 placeholder-gray-800"
-                                    name="MotDePasse" type="password" autocomplete="off"
+                                    name="password" type="password" autocomplete="off"
                                     placeholder="Mot de passe *"><button type="button"
                                     class="border-b border-gray-400 focus:outline-none"><!----><svg
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StadiumStream</title>
-    <meta name="keywords" content="HTML, CSS, Youcode, tailwindCSS, StadiumStream, CAN24">
-    <meta name="description" content="StadiumStream to Sell Football tickets">
+    <title>Wiki</title>
+    <meta name="keywords" content="HTML, CSS, Youcode, tailwindCSS, Wiki, CAN24">
+    <meta name="description" content="Wiki to Sell Football tickets">
 
     <link rel="stylesheet" href="public/assets/css/style.css">
     <link rel="stylesheet" href="public/assets/dist/output.css">
@@ -39,16 +39,16 @@
                     stroke="currentColor" class="h-4 w-4 mt-6 org-text-primary">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
                 </svg>
-                <div class="p-4" style="border-bottom: 2px solid #FF6E01;">Retour</div>
+                <div class="p-4" style="border-bottom: 2px solid #FF6E01;"><a href="Signup">Retour</a></div>
             </button>
         </div>
 
     </div>
     <div class="border-black py-8 px-4 mb-20 mt-4 mx-[7em] border">
-        <div class="flex gap-x-4 justify-center"><a aria-current="page" href="/signin"
+        <div class="flex gap-x-4 justify-center"><a aria-current="page" 
                 class="router-link-active router-link-exact-active"><span
                     class="org-text-shadow uppercase mt-8 md:ml-8 font-bold text-black text-xs md:text-lg" style="border-bottom: 2px solid #FF6E01;">Déjà
-                    Membre</span></a><a href="Sign.html" class="opacity-20"><span
+                    Membre</span></a><a href="Signup" class="opacity-20"><span
                     class="org-text-shadow-disabled opacity-40 uppercase mt-8 md:ml-8 font-bold text-black text-xs md:text-lg">Nouveau
                     Compte</span></a></div><!---->
         <div class="flex justify-center">
@@ -59,13 +59,13 @@
                 <div class="mb-6 relative"><label for="email" class="opacity-40 org-text-primary sr-only">Email</label>
                     <div class="flex"><input id="email"
                             class="text-base md:text-sm border-b w-full focus:outline-none border-gray-400 text-gray-700 placeholder-gray-800"
-                            name="AdresseEmail" type="text" autocomplete="on" placeholder="Email "><!----></div><!---->
+                            name="email" type="text" autocomplete="on" placeholder="Email "><!----></div><!---->
                 </div>
                 <div class="mb-6 relative"><label for="password" class="opacity-40 org-text-primary sr-only">Mot de
                         passe</label>
                     <div class="flex"><input id="password"
                             class="text-base md:text-sm border-b w-full focus:outline-none border-gray-400 text-gray-700 placeholder-gray-800"
-                            name="MotDePasse" type="password" autocomplete="on" placeholder="Mot de passe "><button
+                            name="password" type="password" autocomplete="on" placeholder="Mot de passe "><button
                             type="button" class="border-b border-gray-400 focus:outline-none"><!----><svg
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 stroke-width="2" class="h-4 w-4">

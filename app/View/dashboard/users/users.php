@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Wiki</title>
   <link rel="stylesheet" href="<?= URL_DIR ?>public/assets/css/dashboard.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
@@ -30,16 +30,19 @@
 
         <ul class="sidebar_nav" style="max-height: 80vh; overflow-y: auto;">
           
-            <li class="sidebar_item active" style="width: 100%;">
+            <li class="sidebar_item " style="width: 100%;">
               <a href="dashboard.php" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/1. overview.svg" alt="">Overview</a>
             </li>
 
-            <li class="sidebar_item">
+            <li class="sidebar_item active">
               <a href="users" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">Users</a>
             </li>
 
             <li class="sidebar_item">
               <a href="categories" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">Categories</a>
+            </li>
+            <li class="sidebar_item">
+              <a href="wikis" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">wikis</a>
             </li>
             <li class="sidebar_item">
               <a href="tags" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/agents.svg" alt="">tags</a>
@@ -115,7 +118,6 @@
               <div class="dropdown-menu dropdown-menu-end position-absolute">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Account Setting</a>
-                <a class="dropdown-item" href="#">Log out</a>
               </div>
             </li>
           </ul>
@@ -148,7 +150,7 @@
                                             <td class="px-4 py-3 text-center"><?= $user['phone'] ?></td>
                                             <td class="px-4 py-3 text-center"><?= $user['email'] ?> </td>
                                             <td class="px-4 py-3 text-center"><?= $user['role'] ?> </td>
-                                    <td><a href="#" class="btn btn-success">Update</a></td>
+                                    <td><a href="users/update/<?=$user['id']?>" class="btn btn-success">Update</a></td>
                                     <td><a href="users/delete/<?=$user['id']?>" class="btn btn-danger">Delete</a></td>
                                 </tr>
                                 <?php
@@ -163,36 +165,6 @@
            
         </div>
     </div>
-    <!-- <script>
-$(document).ready(function () {
-$(".btn-danger").click(function () {
-var User_ID = $(this).closest("tr").find("td:first-child").text();
-
-        $.ajax({
-            url: "delete.php",
-            type: "GET",
-            data: { User_ID: User_ID },
-            success: function (response) {
-                if (response === "success") {
-                    // Refresh the page or update the table as needed
-                    location.reload();
-                } else {
-                    alert("Error deleting user");
-                }
-            }
-        });
-    });
-});
-</script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-        <script>
-$(document).ready(function() {
-    $('#yourTableID').DataTable();
-});
-</script> -->
-
     <script src="<?= URL_DIR ?>public/assets/js/dashboard.js"></script>
     <script src="<?= URL_DIR ?>public/assets/js/script.js"></script>
 </body>

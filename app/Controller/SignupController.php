@@ -10,20 +10,20 @@ class SignupController
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Retrieve form data
-            $email = filter_var($_POST["AdresseEmail"], FILTER_VALIDATE_EMAIL);
-            $name = htmlspecialchars($_POST["Nom"]);
+            $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
+            $name = htmlspecialchars($_POST["name"]);
             $phone = htmlspecialchars($_POST["phone"]);
-            $password = password_hash($_POST["MotDePasse"], PASSWORD_DEFAULT);
+            $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
             // Create an instance of SignupModel
             $signupModel = new SignupModel();
 
             // Data to be inserted into the 'users' table
             $userData = [
-                'AdresseEmail' => $email,
-                'Nom' => $name,
+                'email' => $email,
+                'name' => $name,
                 'phone' => $phone,
-                'MotDePasse' => $password,
+                'password' => $password,
             ];
 
             // Call the createUser method in SignupModel to insert the user into the database

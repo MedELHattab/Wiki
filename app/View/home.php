@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StadiumStream</title>
-    <meta name="keywords" content="HTML, CSS, Youcode, tailwindCSS, StadiumStream, CAN24">
-    <meta name="description" content="StadiumStream to Sell Football tickets">
+    <title>Wiki</title>
+    <meta name="keywords" content="HTML, CSS, Youcode, tailwindCSS, Wiki, Wiki">
+    <meta name="description" content="Wiki">
 
     <link rel="stylesheet" href="public/assets/css/style.css">
     <link rel="stylesheet" href="public/assets/dist/output.css">
