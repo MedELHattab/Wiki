@@ -23,15 +23,14 @@
     <aside id="sidebar" class="side">
       <div class="h-100">
         <div class="sidebar_logo d-flex align-items-end">
-          <img src="<?= URL_DIR ?>public/assets/images/PeoplePerTask.png" alt="logo" style="width: 75%;">
-          <!-- <a href="#" class="nav-link text-white-50">Dashboard</a> -->
+        <img src="<?= URL_DIR ?>public/assets/images/LogoWiki.svg" alt="wiki logo">
           <img class="close align-self-start" src="<?= URL_DIR ?>public/assets/images/close.svg" alt="">
         </div>
 
         <ul class="sidebar_nav" style="max-height: 80vh; overflow-y: auto;">
           
             <li class="sidebar_item " style="width: 100%;">
-              <a href="dashboard.php" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/1. overview.svg" alt="">Overview</a>
+              <a href="dashboard" class="sidebar_link"> <img src="<?= URL_DIR ?>public/assets/images/1. overview.svg" alt="">Overview</a>
             </li>
 
             <li class="sidebar_item ">
@@ -49,7 +48,7 @@
             </li>
            
           <li class="sidebar_item">
-            <span><a href="logout.php" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
+            <span><a href="logout" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
                 OUT</a></span>
           </li>
 

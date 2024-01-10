@@ -22,8 +22,17 @@ class SigninModel extends Crud
                 // Verify hashed password
                 if (password_verify($password, $user['password'])) {
                     // Authentication successful
-                    echo "User authenticated successfully!";
-                    return $user;
+
+                    // Check user role
+                    if ($user['role'] == 'admin') {
+                        // Admin should go to the dashboard
+                        echo "Admin authenticated successfully!";
+                        return $user;
+                    } else {
+                        // Other users should go to the home
+                        echo "User authenticated successfully!";
+                        return $user;
+                    }
                 } else {
                     // Authentication failed
                     echo "Invalid email or password.";
@@ -40,4 +49,3 @@ class SigninModel extends Crud
         }
     }
 }
-?>

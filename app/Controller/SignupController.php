@@ -14,6 +14,7 @@ class SignupController
             $name = htmlspecialchars($_POST["name"]);
             $phone = htmlspecialchars($_POST["phone"]);
             $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+            $role = 'author';
 
             // Create an instance of SignupModel
             $signupModel = new SignupModel();
@@ -24,6 +25,7 @@ class SignupController
                 'name' => $name,
                 'phone' => $phone,
                 'password' => $password,
+                'role' => $role
             ];
 
             // Call the createUser method in SignupModel to insert the user into the database
