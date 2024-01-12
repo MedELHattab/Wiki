@@ -12,19 +12,6 @@ class WikisController
         $wikis = $wikis->readWiki();
         include "../app/View/dashboard/wikis/wikis.php";
     }
-    public function delete($id)
-    {
-        $wikis = new WikiModel();
-        $wikis->deleteWiki($id);
-    }
-
-    
-    public function editUser(){
-        $wikis = new WikiModel();
-        $id = $_POST['id'];
-        unset($_POST['id']);
-        $wikis->editWiki($_POST, $id);
-    }
 
     public function updateState()
     {

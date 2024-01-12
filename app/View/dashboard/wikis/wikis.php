@@ -21,8 +21,8 @@
         <aside id="sidebar" class="side">
             <div class="h-100">
                 <div class="sidebar_logo d-flex align-items-end">
-                    <img src="<?= URL_DIR ?>public/assets/images/PeoplePerTask.png" alt="logo" style="width: 75%;">
-                    <!-- <a href="#" class="nav-link text-white-50">Dashboard</a> -->
+                    <img src="<?= URL_DIR ?>public/assets/images/LogoWiki.svg" alt="logo" style="width: 75%;">
+                   
                     <img class="close align-self-start" src="<?= URL_DIR ?>public/assets/images/close.svg" alt="">
                 </div>
 
@@ -125,7 +125,6 @@
 
 
             <section class="Agents px-4">
-                <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1"> Add user </button>
                 <table id="yourTableID" class="agent table align-middle bg-white">
 
                     <thead class="bg-light">

@@ -17,12 +17,5 @@ class UsersController
         $users = new UserModel();
         $users->deleteUser($id);
     }
-
-    
-    public function editUser(){
-        $users = new UserModel();
-        $id = $_POST['id'];
-        unset($_POST['id']);
-        $users->editUser($_POST, $id);
-    }
+   
 }

@@ -24,19 +24,7 @@ class WikiModel extends Crud
             return []; // Return an empty array in case of an error
         }
     }
-    public function deleteWiki($id)
-    {
-        $tableName = 'wikis';
-        $this->delete($tableName, $id);
-        header('Location: ../../wikis');
-    }
-    public function editwiki($data, $id)
-    {
-        $tableName = 'wikis';
-        $redirect = URL_DIR . 'wikis';
-        $this->update($tableName, $data, $id);
-        header("Location: $redirect");
-    }
+
     public function updateWikiState($wikiId, $status)
     {
         try {

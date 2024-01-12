@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
-class HomeController
-{
+use App\Model\HomeModel;
 
-    public function index()
-    {
+class HomeController {
+    public function index() {
+        $wikis = new HomeModel();
+        $allWikis = $wikis->getwikis();     
+        $allSportWikis = $wikis->getSportwikis();
         include '../app/View/home.php';
     }
 }
+?>

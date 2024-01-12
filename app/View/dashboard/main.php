@@ -1,5 +1,13 @@
 <?php
 
+if(!isset($_SESSION["id"])) {
+  header("Location:./signin");
+  exit();
+}
+
+$userId = $_SESSION["id"];
+$userEmail = $_SESSION['email'];
+$userRole = isset($user['role']) ? $user['role'] : '';
 
 ?>
 <!DOCTYPE html>

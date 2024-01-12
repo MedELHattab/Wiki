@@ -1,3 +1,12 @@
+<?php
+
+if (isset($_SESSION["id"])) {
+    $loggedIn = $_SESSION["id"];
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,60 +65,27 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full" src="public/assets/images/AFCON-2022.jpg" />
+                    <?php foreach ($allWikis as $wiki) : ?>
+                        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                            <div class="rounded-lg h-64 overflow-hidden">
+                                <img alt="content" class="object-cover object-center h-full w-full" src="" />
+                            </div>
+                            <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
+                                <?= $wiki['wiki_title'] ?>
+                            </h2>
+                            <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
+                                <?= $wiki['Categorie_Name'] ?>
+                            </h2>
+                            <p class="text-base leading-relaxed mt-2 dark:text-white">
+                                <?= $wiki['content'] ?>
+                            </p>
+                            <a class="text-green-500 inline-flex items-center mt-3">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
                         </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            Shooting Stars
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full" src="public/assets/images/AFCON-2022.jpg" />
-                        </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            The Catalyzer
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full" src="public/assets/images/AFCON-2022.jpg" />
-                        </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            The 400 Blows
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="flex flex-col px-5 pt-24 mx-auto">
@@ -137,60 +113,27 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full" src="public/assets/images/AFCON-2022.jpg" />
+                    <?php foreach ($allSportWikis as $SportWiki) : ?>
+                        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                            <div class="rounded-lg h-64 overflow-hidden">
+                                <img alt="content" class="object-cover object-center h-full w-full" src="" />
+                            </div>
+                            <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
+                                <?= $SportWiki['wiki_title'] ?>
+                            </h2>
+                            <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
+                                <?= $SportWiki['Categorie_Name'] ?>
+                            </h2>
+                            <p class="text-base leading-relaxed mt-2 dark:text-white">
+                                <?= $SportWiki['content'] ?>
+                            </p>
+                            <a class="text-green-500 inline-flex items-center mt-3">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
                         </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            Shooting Stars
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full" src="public/assets/images/AFCON-2022.jpg" />
-                        </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            The Catalyzer
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full" src="public/assets/images/AFCON-2022.jpg" />
-                        </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            The 400 Blows
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="flex flex-col px-5 pt-24 mx-auto">
@@ -202,87 +145,6 @@
         </section>
     </section>
     <!-- / Sport   -->
-
-    <!-- Stadiums   -->
-    <!-- <section class="text-gray-600 body-font">
-        <section class="text-gray-600 body-font">
-            <div class="container px-5 py-24 mx-auto">
-                <div class="flex flex-col">
-                    <div class="flex flex-wrap w-full mb-20">
-                        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-                            <h1 class="titles sm:text-3xl text-2xl font-medium mb-2 text-gray-900 dark:text-white">
-                                Browse Stadiums
-                            </h1>
-                            <div class="h-1 w-20 bg-orange-500 rounded"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full"
-                                src="public/assets/images/abidjan.jpg" />
-                        </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            Shooting Stars
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full"
-                                src="public/assets/images/abidjan.jpg" />
-                        </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            The Catalyzer
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                        <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full"
-                                src="public/assets/images/abidjan.jpg" />
-                        </div>
-                        <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                            The 400 Blows
-                        </h2>
-                        <p class="text-base leading-relaxed mt-2 dark:text-white">
-                            Swag shoivdigoitch literally meditation subway tile tumblr
-                            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-                            ethical XOXO lumbersexual.
-                        </p>
-                        <a class="text-green-500 inline-flex items-center mt-3">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section> -->
-    <!-- / Stadiums   -->
 
     <!-- Footer   -->
     <?php include "../app/View/includes/footer.php"; ?>

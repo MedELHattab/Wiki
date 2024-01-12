@@ -126,10 +126,8 @@
 
 
             <section class="Agents px-4">
-            <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal"
-                               data-bs-target="#exampleModalCenter1"> Add user </button>
-                               <table id="yourTableID" class="agent table align-middle bg-white">
-
+            <table id="yourTableID" class="agent table align-middle bg-white">
+            
                     <thead class="bg-light">
                         <tr>
                             <th>User_ID</th>
@@ -137,19 +135,18 @@
                             <th>Email</th>
                             <th>Phone</th> 
                             <th>Role</th> 
-                            <th>Update</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($users as $user) { ?>
                                         <tr class="border-b dark:border-gray-700">
+                                        <tr class="border-b dark:border-gray-700">
                                             <td class="px-4 py-3 text-center"><?= $user['id'] ?></td>
                                             <td class="px-4 py-3 text-center"><?= $user['name'] ?></td>
                                             <td class="px-4 py-3 text-center"><?= $user['phone'] ?></td>
                                             <td class="px-4 py-3 text-center"><?= $user['email'] ?> </td>
                                             <td class="px-4 py-3 text-center"><?= $user['role'] ?> </td>
-                                    <td><a href="users/update/<?=$user['id']?>" class="btn btn-success">Update</a></td>
                                     <td><a href="users/delete/<?=$user['id']?>" class="btn btn-danger">Delete</a></td>
                                 </tr>
                                 <?php
@@ -157,6 +154,7 @@
                         ?>
 
                     </tbody>
+                    
                 </table>
 
 

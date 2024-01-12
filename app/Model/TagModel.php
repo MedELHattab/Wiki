@@ -34,4 +34,15 @@ class TagModel extends Crud
         $this->update($tableName, $data, $id);
         header("Location: $redirect");
     }
+ 
+    public function createTag($data)
+    {
+        $tableName = 'tags';
+        try {
+            $this->signuser($tableName, $data);
+            return true;
+        } catch (PDOException $e) {
+        }
+    }
 }
+

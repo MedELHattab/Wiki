@@ -18,6 +18,33 @@ class CategoriesController
         $categories->deleteCategorie($id);
     }
 
+    public function addCategorie(){
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Retrieve form data
+            $categorie = htmlspecialchars($_POST["categorie"]);
+         
+            // Create an instance of SignupModel
+            $categorieModel = new CategorieModel();
+
+            // Data to be inserted into the 'users' table
+            $categorieData = [
+                
+                'Categorie_Name' => $categorie,
+            ];
+
+            // Call the createUser method in SignupModel to insert the user into the database
+            $categorieCreated = $categorieModel->createCategorie($categorieData);
+
+            if ($categorieCreated) {
+                header('Location: '. $_SERVER['HTTP_REFERER']);
+                exit();
+            } else {
+                // Redirect to the signin page with an error parameter if there was an issue
+                header("Location: ./signin?error=1");
+                exit();
+            }
+        } 
+    }
     
     public function editCategorie(){
         $categories = new CategorieModel();

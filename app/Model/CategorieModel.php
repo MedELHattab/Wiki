@@ -34,4 +34,14 @@ class CategorieModel extends Crud
         $this->update($tableName, $data, $id);
         header("Location: $redirect");
     }
+
+    public function createCategorie($data)
+    {
+        $tableName = 'categories';
+        try {
+            $this->create($tableName, $data);
+            return true;
+        } catch (PDOException $e) {
+        }
+    }
 }

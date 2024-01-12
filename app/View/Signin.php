@@ -45,11 +45,7 @@
                 </div>
                 <div class="mb-6 relative"><label for="password" class="opacity-40 org-text-primary sr-only">Mot de
                         passe</label>
-                    <div class="flex"><input id="password" class="text-base md:text-sm border-b w-full focus:outline-none border-gray-400 text-gray-700 placeholder-gray-800" name="password" type="password" autocomplete="on" placeholder="Mot de passe "><button type="button" class="border-b border-gray-400 focus:outline-none"><!----><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="h-4 w-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                                </path>
-                            </svg></button></div><!---->
+                    <div class="flex"><input id="password" class="text-base md:text-sm border-b w-full focus:outline-none border-gray-400 text-gray-700 placeholder-gray-800" name="password" type="password" autocomplete="on" placeholder="Mot de passe "></div><!---->
                 </div>
                 <div class="mx-auto mb-6 relative"><a href="/password-recovery" class=""><span class="underline text-xs text-gray-800">Mot de passe oublié?</span></a></div><!---->
                 <div class="flex items-center justify-center"><button type="submit" class="bg-[#004634]  text-white font-bold py-2 px-4 border rounded" style="background-color: #004634;">
