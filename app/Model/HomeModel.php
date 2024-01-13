@@ -16,7 +16,7 @@ class HomeModel extends Crud
     {
 
         try {
-            $query = "SELECT w.wiki_title , c.Categorie_Name ,w.content FROM wikis w  inner JOIN categories c where w.Categorie_ID  = c.id and w.status ='approved' limit 3";
+            $query = "SELECT w.id, w.wiki_title , c.Categorie_Name ,w.content FROM wikis w  inner JOIN categories c where w.Categorie_ID  = c.id and w.status ='approved' limit 3";
             $stmt = $this->pdo->query($query);
 
             $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -32,7 +32,7 @@ class HomeModel extends Crud
     {
 
         try {
-            $query = "SELECT w.wiki_title, c.Categorie_Name, w.content
+            $query = "SELECT w.id, w.wiki_title, c.Categorie_Name, w.content
             FROM wikis w
             INNER JOIN categories c ON w.Categorie_ID = c.id
             WHERE c.Categorie_Name = 'Sport'
@@ -49,4 +49,12 @@ class HomeModel extends Crud
             return []; // Return an empty array in case of an error
         }
     }
+    public function search($input)
+   {
+    $query = "SELECT w.wiki_title , c.Categorie_Name ,w.content FROM wikis w  inner JOIN categories c where w.Categorie_ID  = c.id and w.status ='approved' limit 3";
+      $stmt = $this->pdo->query($query);
+      $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      return $res;
+   }
+
 }

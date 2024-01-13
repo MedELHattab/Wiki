@@ -35,7 +35,7 @@ if (isset($_SESSION["id"])) {
                 <!-- First   -->
                 <!-- First   -->
                 <div class="relative w-3/4">
-                    <input type="text" class="w-full backdrop-blur-sm bg-white/20 py-2 pl-10 pr-4 rounded-lg focus:outline-none border-2 border-gray-100 focus:border-violet-300 transition-colors duration-300" placeholder="Search..." />
+                    <input type="text" class="w-full backdrop-blur-sm bg-white/20 py-2 pl-10 pr-4 rounded-lg focus:outline-none border-2 border-gray-100 focus:border-violet-300 transition-colors duration-300" id="searchinput" placeholder="Search..." />
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -66,7 +66,7 @@ if (isset($_SESSION["id"])) {
                 </div>
                 <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
                     <?php foreach ($allWikis as $wiki) : ?>
-                        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                        <div class="p-4 md:w-1/3 sm:mb-0 mb-6" id="wiki-container">
                             <div class="rounded-lg h-64 overflow-hidden">
                                 <img alt="content" class="object-cover object-center h-full w-full" src="" />
                             </div>
@@ -79,7 +79,7 @@ if (isset($_SESSION["id"])) {
                             <p class="text-base leading-relaxed mt-2 dark:text-white">
                                 <?= $wiki['content'] ?>
                             </p>
-                            <a class="text-green-500 inline-flex items-center mt-3">Learn More
+                            <a class="text-green-500 inline-flex items-center mt-3" href="wikipage">Learn More
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
@@ -127,7 +127,7 @@ if (isset($_SESSION["id"])) {
                             <p class="text-base leading-relaxed mt-2 dark:text-white">
                                 <?= $SportWiki['content'] ?>
                             </p>
-                            <a class="text-green-500 inline-flex items-center mt-3">Learn More
+                            <a class="text-green-500 inline-flex items-center mt-3" href="Wikipage/?id=<?= $wiki['id'] ?>">Learn More
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
@@ -152,6 +152,7 @@ if (isset($_SESSION["id"])) {
 
     <!-- / For dark mode -->
     <script src="public/assets/js/darkmode.js"></script>
+    <script src="public/assets/js/livesearch.js"></script>
     <!-- / For navbar mobile -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 </body>

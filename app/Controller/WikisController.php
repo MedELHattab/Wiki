@@ -3,13 +3,12 @@
 namespace App\Controller;
 
 use App\Model\WikiModel;
-
 class WikisController
 {
     public function index()
     {
-        $wikis = new WikiModel();
-        $wikis = $wikis->readWiki();
+        $wikiModel = new WikiModel();
+        $wikis = $wikiModel->readWiki();
         include "../app/View/dashboard/wikis/wikis.php";
     }
 

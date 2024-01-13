@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\CategorieModel;
+use App\Model\TagModel;
 use App\Model\MywikiModel;
 
 class MywikisController
@@ -16,10 +18,50 @@ class MywikisController
 
         // Fetch wikis belonging to the logged-in user
         $wikis = $wikiModel->readMywiki();
-
+        $categories = new CategorieModel();
+        $categories = $categories->readCategorie();
+        $tags = new TagModel();
+        $tags = $tags->readTags();
         // Include the view
         include "../app/View/mywikis.php";
+
     }
+    public function addWiki()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Retrieve form data
+            $wiki = htmlspecialchars($_POST["wiki"]);
+            $content = htmlspecialchars($_POST["content"]);
+            $status = 'pending';
+            $User_ID = $_SESSION["id"];
+            $Categorie_ID = isset($_POST["categorie"]) ? (int)$_POST["categorie"] : null;
+
+            // Create an instance of WikiModel
+            $wikiModel = new MywikiModel();
+
+            // Data to be inserted into the 'wikis' table
+            $wikiData = [
+                'wiki_title' => $wiki,
+                'content' => $content,
+                'status' => $status,
+                'User_ID' => $User_ID,
+                'Categorie_ID' => $Categorie_ID
+            ];
+
+            $wikiCreated = $wikiModel->createWiki($wikiData);
+
+            if ($wikiCreated) {
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                exit();
+            } else {
+                // Redirect to the signin page with an error parameter if there was an issue
+                header("Location: ./signin?error=1");
+                exit();
+            }
+        }
+    }
+
+    
     public function delete($id)
     {
         $wikis = new MywikiModel();
