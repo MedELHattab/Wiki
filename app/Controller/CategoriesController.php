@@ -47,9 +47,15 @@ class CategoriesController
     }
     
     public function editCategorie(){
-        $categories = new CategorieModel();
+        $redirect = URL_DIR . 'categories';
+        $CategoriesModel = new CategorieModel();
+        // var_dump($_POST);die;
         $id = $_POST['id'];
-        unset($_POST['id']);
-        $categories->editCategorie($_POST, $id);
+        $data = $_POST['name'];
+        $name = [
+            'Categorie_Name' => $data,
+        ];
+        $CategoriesModel->editCategory($name, $id);
+        header("Location: $redirect");
     }
 }

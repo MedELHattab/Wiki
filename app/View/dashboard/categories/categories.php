@@ -125,9 +125,9 @@
 
 
       <section class="Agents px-4">
-      <button type="button" id="addCategoriesButton" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#addcategoriesModal">
-  Add categories
-</button>
+        <button type="button" id="addCategoriesButton" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#addcategoriesModal">
+          Add categories
+        </button>
 
         <table id="yourTableID" class="agent table align-middle bg-white">
 
@@ -144,7 +144,9 @@
               <tr class="border-b dark:border-gray-700">
                 <td class="px-4 py-3 text-center"><?= $categorie['id'] ?></td>
                 <td class="px-4 py-3 text-center"><?= $categorie['Categorie_Name'] ?></td>
-                <td><a href="categories/update/<?= $categorie['id'] ?>" class="btn btn-success">Update</a></td>
+                <td><button data-id="<?= $category['id'] ?>" type="button" id="updateCategoriesButton" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#updatecategoriesModal">
+                    Update
+                  </button></td>
                 <td><a href="categories/delete/<?= $categorie['id'] ?>" class="btn btn-danger">Delete</a></td>
               </tr>
             <?php
@@ -159,8 +161,8 @@
 
     </div>
   </div>
-<!-- Modal -->
-<div class="modal fade" id="addcategoriesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal -->
+  <div class="modal fade" id="addcategoriesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -183,15 +185,49 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="updatecategoriesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Your modal content goes here -->
+          <form action="categories/editCategorie/<?= $categorie['id'] ?>" method="Post">
+            
+            <div class="mb-3">
+              <label for="categoryName" class="form-label">Category Name</label>
+              <input type="text" class="form-control" id="categoryName" name="categorie" required placeholder="<?= $categorie['Categorie_Name'] ?>">
+            </div>
+            
+            <button type="submit" data-id="<?= $categorie['id'] ?>" class="btn btn-primary">Update Category</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="<?= URL_DIR ?>public/assets/js/dashboard.js"></script>
-    <script src="<?= URL_DIR ?>public/assets/js/script.js"></script>
+  <script src="<?= URL_DIR ?>public/assets/js/script.js"></script>
 
   <script>
     // Initialize the modal
-    var myModal = new bootstrap.Modal(document.getElementById('addcategoriesModal'));
+    var myModaladd = new bootstrap.Modal(document.getElementById('addcategoriesModal'));
 
     // Show the modal when the button is clicked
-    document.getElementById('addCategoriesButton').addEventListener('click', function () {
+    document.getElementById('addCategoriesButton').addEventListener('click', function() {
+      myModaladd.show();
+    });
+  </script>
+
+  <script>
+    // Initialize the modal
+    var myModal = new bootstrap.Modal(document.getElementById('updatecategoriesModal'));
+
+    // Show the modal when the button is clicked
+    document.getElementById('updateCategoriesButton').addEventListener('click', function() {
       myModal.show();
     });
   </script>

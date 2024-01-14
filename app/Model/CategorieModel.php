@@ -27,12 +27,9 @@ class CategorieModel extends Crud
         $this->delete($tableName, $id);
         header('Location: ../../categories');
     }
-    public function editCategorie($data, $id)
-    {
-        $tableName = 'categories';
-        $redirect = URL_DIR . 'categories';
-        $this->update($tableName, $data, $id);
-        header("Location: $redirect");
+    public function editCategory($data,$categoryId){
+        $tablename = 'categories';
+        return $this->update($tablename,$data, $categoryId);
     }
 
     public function createCategorie($data)

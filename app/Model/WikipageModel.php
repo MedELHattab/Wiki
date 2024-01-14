@@ -7,20 +7,28 @@ use PDOException;
 
 class WikipageModel extends Crud
 {
-    public function readWiki()
+    public function readWiki($id)
+    {
+        $tablename = 'wikis';
+        $data = $this->getRecordById($tablename, $id);
+        return $data;
+    }
+    public function WikiTags($id)
     {
         try {
-            $query = "SELECT W.*, U.name, C.Categorie_Name
-            FROM wikis W 
-            INNER JOIN categories C ON W.Categorie_ID = C.id
-            INNER JOIN users U ON U.id = W.User_ID";
-            $stmt = $this->pdo->query($query);
-
-            $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            return $records; // Return the fetched records
+            $query = "SELECT p.tag_id, p.wiki_id, t.name 
+                      FROM wiki_tag p
+                      INNER JOIN tags t ON p.tag_id = t.id
+                      WHERE p.wiki_id = :id";
+    
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $tags = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $tags;
         } catch (PDOException $e) {
-            echo "Error fetching records: " . $e->getMessage();
-            return []; // Return an empty array in case of an error
+            die("ERROR: Could not execute $query. " . $e->getMessage());
         }
-    }}
+    }
+}

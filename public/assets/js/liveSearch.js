@@ -1,28 +1,28 @@
-$(document).ready(function(){
-  $("#searchinput").keyup(function(){
+//search for Wikis
+$(document).ready(function () {
+    $("#searchinput").keyup(function () {
       var input = $(this).val();
-      if(input != ""){
-          $.ajax({
-              url:"Home/liveSearch",
-              method:"post",
-              data: { query: input },
-              success: function(res){
-                  console.log(JSON.parse(res));
-                  displayWikis(JSON.parse(res));
-              }
-          });
+      if (input != "") {
+        $.ajax({
+          url: "Home/search",
+          method: "post",
+          data: { search: input },
+          success: function (res) {
+            // console.log(JSON.parse(res));
+            displayWikis(JSON.parse(res));
+          },
+        });
       }
-  })
-
-});
-
+    });
+  });
 
 
-function displayWikis(wiki){
-  let wikicontainer = document.getElementById("wiki-container");
-  wikicontainer.innerHTML="";
-  wiki.forEach(wiki => {
-      wikicontainer.innerHTML += 
+
+  function displayWikis(wiki) {
+    let WikisContainer = document.getElementById("wikis-container");
+    WikisContainer.innerHTML = "";
+    wiki.forEach((wiki) => {
+      WikisContainer.innerHTML += 
       `
       <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
                             <div class="rounded-lg h-64 overflow-hidden">
@@ -37,7 +37,7 @@ function displayWikis(wiki){
                             <p class="text-base leading-relaxed mt-2 dark:text-white">
                                 ${wiki.content}
                             </p>
-                            <a class="text-green-500 inline-flex items-center mt-3" href="wikipage/${wiki.id}">Learn More
+                            <a class="text-green-500 inline-flex items-center mt-3" href="wikipage">Learn More
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>

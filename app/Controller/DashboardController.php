@@ -6,6 +6,11 @@ use App\Model\Statistics;
 
 class DashboardController {
     public function index() {
+        // if (!isset($_SESSION['id']) || $_SESSION['role'] !== 'admin') {
+        //     // Redirect to sign-in page or perform other actions
+        //     header("Location: ./signin");
+        //     exit;
+        // }
         $statistics = new Statistics();
 
         $totalUsersData = $statistics->getTotalUsers();

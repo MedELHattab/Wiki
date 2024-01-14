@@ -37,48 +37,49 @@ class MywikiModel extends Crud
     }
 }
 
-public function createWiki($wikiData)
-{
-    try {
-        // Insert data into the 'wikis' table
-        $wikiInsertQuery = "INSERT INTO wikis (wiki_title, content, status, User_ID, Categorie_ID) VALUES (:wiki_title, :content, :status, :User_ID, :Categorie_ID)";
-        $wikiStatement = $this->pdo->prepare($wikiInsertQuery);
 
-        $wikiParams = [
-            ':wiki_title' => $wikiData['wiki_title'],
-            ':content' => $wikiData['content'],
-            ':status' => $wikiData['status'],
-            ':User_ID' => $wikiData['User_ID'],
-            ':Categorie_ID' => $wikiData['Categorie_ID'],
-        ];
-
-        $wikiStatement->execute($wikiParams);
-
-        // Get the last inserted ID
-        $wikiId = $this->pdo->lastInsertId();
-
-        // Insert data into the 'wiki-tag' table
-        if (isset($_POST['tag']) && is_array($_POST['tag'])) {
-            $tagInsertQuery = "INSERT INTO wiki-tag (wiki-id, tag-id) VALUES (:wiki_id, :tag_id)";
-            $tagStatement = $this->pdo->prepare($tagInsertQuery);
-
-            foreach ($_POST['tag'] as $tagId) {
-                $tagParams = [
-                    ':wiki_id' => $wikiId,
-                    ':tag_id' => $tagId,
-                ];
-                $tagStatement->execute($tagParams);
-            }
+public function insert($table, $data)
+    {
+        try {
+            // Utilize the data passed instead of an empty array
+            parent::create($table, $data);
+            return $wikiId = $this->pdo->lastInsertId();
+            // Return the last inserted ID
+        } catch (PDOException $e) {
+            // Handle the error here if necessary (e.g., log the error)
+            echo "Error during insertion: " . $e->getMessage();
+            return false;
         }
+    }
 
-        // Return a meaningful value, for example, the last inserted ID
-        return $wikiId;
-    } catch (PDOException $e) {
-        echo "Error creating record: " . $e->getMessage();
-        // You might want to throw an exception or return some error value here
-        return false;
-    }}
+// public function CreateWiki($table, $data, $tags)
+//     {
+//         // var_dump($data);
+//         try {
+//             $this->create($table, $data);
+//             $wikiId = $this->pdo->lastInsertId();
+                              
+//         // Insert data into the 'wiki-tag' table
+//         $this->create($table, $data);
+// $wikiId = $this->pdo->lastInsertId();
 
+// // Add wiki-tag relationships
+// foreach ($tags as $tagId) {
+//             $addWikiTagQuery = "INSERT INTO wiki_tag (tag_id, wiki_id) VALUES (:tag_id, :wiki_id)";
+//             $addWikiTagStmt = $this->pdo->prepare($addWikiTagQuery);
+//             $addWikiTagStmt->bindParam(':tag_id', $tagId);
+//             $addWikiTagStmt->bindParam(':wiki_id', $wikiId);
+//             $addWikiTagStmt->execute();
+//             }
+    
+//     }
+
+            
+//          catch (PDOException $e) {
+//             echo "Error inserting wiki with tags: " . $e->getMessage();
+//         }
+
+// }
 
     public function deleteWiki($id)
     {

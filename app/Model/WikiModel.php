@@ -38,4 +38,5 @@ class WikiModel extends Crud
             return []; // Return an empty array in case of an error
         }
     }
+    
 }

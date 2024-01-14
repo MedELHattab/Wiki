@@ -11,13 +11,11 @@ class HomeController {
         $allSportWikis = $wikis->getSportwikis();
         include '../app/View/home.php';
     }
-    public function liveSearch()
+    public function search()
     {
-        // var_dump($_POST);die;
         $obj = new HomeModel();
-        $input = $_POST['query'];
-        $result=$obj->search($input);
-        
+        $input = $_POST['search'];
+        $result = $obj->search($input);
         echo json_encode($result);
     }
     

@@ -48,9 +48,24 @@ class MywikisController
                 'Categorie_ID' => $Categorie_ID
             ];
 
-            $wikiCreated = $wikiModel->createWiki($wikiData);
+            $wikiCreated = $wikiModel->insert('wikis', $wikiData);
 
             if ($wikiCreated) {
+                    $lastInsertedWiki = $wikiModel->lastInsertId();
+                   
+                    // Tags du formulaire
+                    $tagsInput = isset($_POST['tag']) ? $_POST['tag'] : [];
+                    $tagModel = new MywikiModel();
+
+                    foreach ($tagsInput as $tag) {
+
+                        $tagModel->insert('wiki_tag', ['tag_id' => $tag, 'wiki_id' => $lastInsertedWiki]);
+
+                    }
+
+                    echo "Data inserted successfully.";
+                    header("Location: " . $_SERVER['HTTP_REFERER']);
+                
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
                 exit();
             } else {
@@ -60,6 +75,7 @@ class MywikisController
             }
         }
     }
+   
 
     
     public function delete($id)
