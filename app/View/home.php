@@ -68,7 +68,7 @@ if (isset($_SESSION["id"])) {
                     <?php foreach ($allWikis as $wiki) : ?>
                         <div class="p-4 md:w-1/3 sm:mb-0 mb-6" >
                             <div class="rounded-lg h-64 overflow-hidden">
-                                <img alt="content" class="object-cover object-center h-full w-full" src="" />
+                                <img alt="content" class="object-cover object-center h-full w-full" src="<?= URL_DIR ?>public/assets/images/LogoWiki.svg" />
                             </div>
                             <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
                                 <?= $wiki['wiki_title'] ?>
@@ -124,7 +124,7 @@ if (isset($_SESSION["id"])) {
                     <?php foreach ($allSportWikis as $SportWiki) : ?>
                         <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
                             <div class="rounded-lg h-64 overflow-hidden">
-                                <img alt="content" class="object-cover object-center h-full w-full" src="" />
+                                <img alt="content" class="object-cover object-center h-full w-full" src="<?= URL_DIR ?>public/assets/images/LogoWiki.svg" />
                             </div>
                             <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
                                 <?= $SportWiki['wiki_title'] ?>

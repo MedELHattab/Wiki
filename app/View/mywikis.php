@@ -54,7 +54,7 @@ $loggedIn = $_SESSION["id"];
                         <td class="px-4 py-3 text-center"><?= $wiki['content'] ?></td>
                         <td class="px-4 py-3 text-center"><?= $wiki['name'] ?> </td>
                         <td class="px-4 py-3 text-center"><?= $wiki['Categorie_Name'] ?> </td>
-                        <td><button data-id="<?= $wiki['id'] ?>" type="button" id="updateWikisButton" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#updatewikisModal<?= $wiki['id'] ?>">
+                        <td><button data-id="<?= $wiki['id'] ?>" type="button" id="updateWikisButton" class="btn btn-primary my-2" style="background-color: #0d6efd;" data-bs-toggle="modal" data-bs-target="#updatewikisModal<?= $wiki['id'] ?>">
                                 Update
                             </button></td>
                         <td><a href="mywikis/delete/<?= $wiki['id'] ?>" class="btn btn-danger">Delete</a></td>
@@ -82,24 +82,24 @@ $loggedIn = $_SESSION["id"];
                                             <input type="text" class="form-control" id="tagcontent" name="content" required value="<?= $wiki['content'] ?>">
 
                                         </div>
-
-                                        <select name="Categorie_ID" id="categorie" class="form-control" required>
-                                            <option value="<?= $wiki[0]['Categorie_ID'] ?>"><?= $wiki['Categorie_Name'] ?></option>
-                                            <?php foreach ($categories as $categorie) : ?>
-                                                <option value="<?= $categorie['id'] ?>"><?= $categorie['Categorie_Name'] ?></option>
-                                            <?php endforeach ?>
-                                        </select>
-
                                         <div>
-                                            <label class="form-label">Tags</label>
-                                            <select name="tag[]" id="tag" multiple required>
-                                                <?php foreach ($tags as $tag) : ?>
-                                                    <option value="<?= $tag['id'] ?>"><?= $tag['tag'] ?></option>
+                                            <select name="Categorie_ID" id="categorie" class="form-control" required>
+                                                <option value="<?= $wiki[0]['Categorie_ID'] ?>"><?= $wiki['Categorie_Name'] ?></option>
+                                                <?php foreach ($categories as $categorie) : ?>
+                                                    <option value="<?= $categorie['id'] ?>"><?= $categorie['Categorie_Name'] ?></option>
                                                 <?php endforeach ?>
                                             </select>
                                         </div>
+                                        <div>
+            <label class="form-label">Tags</label>
+            <select name="tag[]" id="tag" multiple required>
+                <?php foreach($tags as $tag) :?>
+                    <option value="<?= $tag['id'] ?>"><?= $tag['tag'] ?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
 
-                                        <button type="submit" data-id="<?= $wiki['id'] ?>" class="btn btn-primary">Update wikis</button>
+                                        <button type="submit" data-id="<?= $wiki['id'] ?>" style="background-color: #0d6efd;" class="btn btn-primary">Update wikis</button>
                                     </form>
                                 </div>
                             </div>
@@ -144,14 +144,14 @@ $loggedIn = $_SESSION["id"];
                             </select>
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Tags</label>
-                            <select name="tag[]" id="tag" multiple class="form-control">
-                                <?php foreach ($tags as $tag) : ?>
-                                    <option value="<?= $tag['id'] ?>"><?= $tag['tag'] ?></option>
-                                <?php endforeach ?>
-                            </select>
-                        </div>
+                        <div>
+            <label class="form-label">Tags</label>
+            <select name="tag[]" id="tag1" multiple required>
+                <?php foreach($tags as $tag) :?>
+                    <option value="<?= $tag['id'] ?>"><?= $tag['tag'] ?></option>
+                <?php endforeach ?>
+            </select>
+        </div>
 
                         <!-- Add more form fields if needed -->
                         <button type="submit" class="btn btn-primary" style="background-color: #0d6efd;">Add Wiki</button>
@@ -180,6 +180,14 @@ $loggedIn = $_SESSION["id"];
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             new MultiSelectTag('tag', {
+                enable_search: true,
+                search_placeholder: 'Search tags...',
+            });
+        });
+    </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new MultiSelectTag('tag1', {
                 enable_search: true,
                 search_placeholder: 'Search tags...',
             });
