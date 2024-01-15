@@ -48,7 +48,7 @@
           </li>
 
           <li class="sidebar_item">
-            <span><a href="logout" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
+            <span><a href="logout/logout" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
                 OUT</a></span>
           </li>
 
@@ -144,9 +144,36 @@
             <tr class="border-b dark:border-gray-700">
               <td class="px-4 py-3 text-center"><?= $tag['id'] ?></td>
               <td class="px-4 py-3 text-center"><?= $tag['tag'] ?></td>
-              <td><a href="tags/update/<?= $tag['id'] ?>" class="btn btn-success">Update</a></td>
+              <td><button data-id="<?= $tag['id'] ?>" type="button" id="updateTagsButton" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#updatetagsModal<?= $tag['id'] ?>">
+                    Update
+                  </button></td>
               <td><a href="tags/delete/<?= $tag['id'] ?>" class="btn btn-danger">Delete</a></td>
             </tr>
+                          <!-- Modal -->
+
+                          <div class="modal fade" id="updatetagsModal<?= $tag['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Update tag</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- Your modal content goes here -->
+                      <form action="tags/editTag" method="Post">
+
+                        <div class="mb-3">
+                          <label for="tagName" class="form-label">Tag Name</label>
+                          <input type="text" class="form-control" id="tagName" name="tag" required value="<?= $tag['tag'] ?>">
+                          <input type="hidden" name="id" value="<?= $tag['id'] ?>" >
+                        </div>
+
+                        <button type="submit" data-id="<?= $tag['id'] ?>" class="btn btn-primary">Update Tag</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
           <?php
           }
           ?>
@@ -190,10 +217,20 @@
 
   <script>
     // Initialize the modal
-    var myModal = new bootstrap.Modal(document.getElementById('addtagssModal'));
+    var myModaladd = new bootstrap.Modal(document.getElementById('addtagssModal'));
 
     // Show the modal when the button is clicked
     document.getElementById('addTagsButton').addEventListener('click', function() {
+      myModaladd.show();
+    });
+  </script>
+
+<script>
+    // Initialize the modal
+    var myModal = new bootstrap.Modal(document.getElementById('updatetagsModal'));
+
+    // Show the modal when the button is clicked
+    document.getElementById('updateTagsButton').addEventListener('click', function() {
       myModal.show();
     });
   </script>

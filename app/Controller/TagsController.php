@@ -46,10 +46,16 @@ class TagsController
     }
 
     
-    public function edit(){
-        $tags = new TagModel();
+    public function editTag(){
+        $redirect = URL_DIR . 'tags';
+        $CategoriesModel = new TagModel();
+        // var_dump($_POST);die;
         $id = $_POST['id'];
-        unset($_POST['id']);
-        $tags->editTag($_POST, $id);
+        $data = $_POST['tag'];
+        $name = [
+            'tag' => $data,
+        ];
+        $CategoriesModel->editTag($name, $id);
+        header("Location: $redirect");
     }
 }

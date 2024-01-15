@@ -29,7 +29,7 @@ $(document).ready(function () {
                                 <img alt="content" class="object-cover object-center h-full w-full" src="" />
                             </div>
                             <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
-                                ${wiki.title}
+                                ${wiki.wiki_title}
                             </h2>
                             <h2 class="text-xl font-medium title-font text-gray-900 mt-5">
                                 ${wiki.Categorie_Name}

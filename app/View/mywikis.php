@@ -54,9 +54,57 @@ $loggedIn = $_SESSION["id"];
                         <td class="px-4 py-3 text-center"><?= $wiki['content'] ?></td>
                         <td class="px-4 py-3 text-center"><?= $wiki['name'] ?> </td>
                         <td class="px-4 py-3 text-center"><?= $wiki['Categorie_Name'] ?> </td>
-                        <td><a href="categories/update/<?= $categorie['id'] ?>" class="btn btn-success">Update</a></td>
-                        <td><a href="categories/delete/<?= $categorie['id'] ?>" class="btn btn-danger">Delete</a></td>
+                        <td><button data-id="<?= $wiki['id'] ?>" type="button" id="updateWikisButton" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#updatewikisModal<?= $wiki['id'] ?>">
+                                Update
+                            </button></td>
+                        <td><a href="mywikis/delete/<?= $wiki['id'] ?>" class="btn btn-danger">Delete</a></td>
                     </tr>
+                    <!-- Modal -->
+
+                    <div class="modal fade" id="updatewikisModal<?= $wiki['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Update wikis</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Your modal content goes here -->
+                                    <form action="Mywikis/updateWiki" method="Post">
+
+                                        <div class="mb-3">
+                                            <label for="tagName" class="form-label">Wiki Name</label>
+                                            <input type="text" class="form-control" id="tagName" name="wiki" required value="<?= $wiki['wiki_title'] ?>">
+                                            <input type="hidden" name="id" value="<?= $wiki['id'] ?>">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="tagcontent" class="form-label">Content</label>
+                                            <input type="text" class="form-control" id="tagcontent" name="content" required value="<?= $wiki['content'] ?>">
+
+                                        </div>
+
+                                        <select name="Categorie_ID" id="categorie" class="form-control" required>
+                                            <option value="<?= $wiki[0]['Categorie_ID'] ?>"><?= $wiki['Categorie_Name'] ?></option>
+                                            <?php foreach ($categories as $categorie) : ?>
+                                                <option value="<?= $categorie['id'] ?>"><?= $categorie['Categorie_Name'] ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+
+                                        <div>
+                                            <label class="form-label">Tags</label>
+                                            <select name="tag[]" id="tag" multiple required>
+                                                <?php foreach ($tags as $tag) : ?>
+                                                    <option value="<?= $tag['id'] ?>"><?= $tag['tag'] ?></option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+
+                                        <button type="submit" data-id="<?= $wiki['id'] ?>" class="btn btn-primary">Update wikis</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } ?>
             </tbody>
 
@@ -118,11 +166,11 @@ $loggedIn = $_SESSION["id"];
 
     <script>
         // Initialize the modal
-        var myModal = new bootstrap.Modal(document.getElementById('addwikiModal'));
+        var myModaladd = new bootstrap.Modal(document.getElementById('addwikiModal'));
 
         // Show the modal when the button is clicked
         document.getElementById('addWikkisButton').addEventListener('click', function() {
-            myModal.show();
+            myModaladd.show();
         });
     </script>
     <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
@@ -137,6 +185,16 @@ $loggedIn = $_SESSION["id"];
             });
         });
     </script>
+    <script>
+        // Initialize the modal
+        var myModal = new bootstrap.Modal(document.getElementById('updatewikisModal'));
+
+        // Show the modal when the button is clicked
+        document.getElementById('updateWikisButton').addEventListener('click', function() {
+            myModal.show();
+        });
+    </script>
+
     <!-- Footer   -->
     <?php include "../app/View/includes/footer.php"; ?>
     <!-- / Footer   -->

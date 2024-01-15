@@ -27,12 +27,9 @@ class TagModel extends Crud
         $this->delete($tableName, $id);
         header('Location: ../../tags');
     }
-    public function editTag($data, $id)
-    {
-        $tableName = 'tags';
-        $redirect = URL_DIR . 'tags';
-        $this->update($tableName, $data, $id);
-        header("Location: $redirect");
+    public function editTag($data,$categoryId){
+        $tablename = 'tags';
+        return $this->update($tablename,$data, $categoryId);
     }
  
     public function createTag($data)

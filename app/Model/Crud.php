@@ -69,13 +69,14 @@ class Crud extends Connection
     public function delete($tableName, $id)
     {
         try {
+            $id+=0;
             $query = "DELETE FROM $tableName WHERE ID = :id";
-
+          
             // Prepare and execute the SQL statement
             $stmt = $this->pdo->prepare($query);
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
-
+            
             // Output a success message
             echo "Record deleted successfully!";
         } catch (PDOException $e) {

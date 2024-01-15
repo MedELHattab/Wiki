@@ -53,10 +53,10 @@ class HomeModel extends Crud
     public function search($input)
     {
         try {
-            $query = " SELECT w.id, w.title, w.content, w.status, u.name, c.Categorie_Name FROM `wikis` w
+            $query = " SELECT w.id, w.wiki_title, w.content, w.status, u.name, c.Categorie_Name FROM `wikis` w
             INNER JOIN users u ON w.User_ID = u.id 
             INNER JOIN categories c ON w.Categorie_ID = c.id
-            WHERE w.status = 'approved' AND w.title LIKE '%$input%'";
+            WHERE w.status = 'approved' AND w.wiki_title LIKE '%$input%'";
             $stmt = $this->pdo->query($query);
             $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $records;

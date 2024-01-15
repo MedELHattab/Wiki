@@ -51,7 +51,7 @@ class CategoriesController
         $CategoriesModel = new CategorieModel();
         // var_dump($_POST);die;
         $id = $_POST['id'];
-        $data = $_POST['name'];
+        $data = $_POST['categorie'];
         $name = [
             'Categorie_Name' => $data,
         ];

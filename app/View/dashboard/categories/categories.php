@@ -48,7 +48,7 @@
           </li>
 
           <li class="sidebar_item">
-            <span><a href="logout" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
+            <span><a href="logout/logout" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
                 OUT</a></span>
           </li>
 
@@ -144,11 +144,36 @@
               <tr class="border-b dark:border-gray-700">
                 <td class="px-4 py-3 text-center"><?= $categorie['id'] ?></td>
                 <td class="px-4 py-3 text-center"><?= $categorie['Categorie_Name'] ?></td>
-                <td><button data-id="<?= $category['id'] ?>" type="button" id="updateCategoriesButton" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#updatecategoriesModal">
+                <td><button data-id="<?= $category['id'] ?>" type="button" id="updateCategoriesButton" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#updatecategoriesModal<?= $categorie['id'] ?>">
                     Update
                   </button></td>
                 <td><a href="categories/delete/<?= $categorie['id'] ?>" class="btn btn-danger">Delete</a></td>
               </tr>
+              <!-- Modal -->
+
+              <div class="modal fade" id="updatecategoriesModal<?= $categorie['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- Your modal content goes here -->
+                      <form action="categories/editCategorie" method="Post">
+
+                        <div class="mb-3">
+                          <label for="categoryName" class="form-label">Category Name</label>
+                          <input type="text" class="form-control" id="categoryName" name="categorie" required value="<?= $categorie['Categorie_Name'] ?>">
+                          <input type="hidden" name="id" value="<?= $categorie['id'] ?>" >
+                        </div>
+
+                        <button type="submit" data-id="<?= $categorie['id'] ?>" class="btn btn-primary">Update Category</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <?php
             }
             ?>
@@ -166,7 +191,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add Tag</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -185,29 +210,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="updatecategoriesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Your modal content goes here -->
-          <form action="categories/editCategorie/<?= $categorie['id'] ?>" method="Post">
-            
-            <div class="mb-3">
-              <label for="categoryName" class="form-label">Category Name</label>
-              <input type="text" class="form-control" id="categoryName" name="categorie" required placeholder="<?= $categorie['Categorie_Name'] ?>">
-            </div>
-            
-            <button type="submit" data-id="<?= $categorie['id'] ?>" class="btn btn-primary">Update Category</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <script src="<?= URL_DIR ?>public/assets/js/dashboard.js"></script>
   <script src="<?= URL_DIR ?>public/assets/js/script.js"></script>

@@ -48,7 +48,7 @@
             </li>
            
           <li class="sidebar_item">
-            <span><a href="logout" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
+            <span><a href="logout/logout" class="sidebar_link text-danger"><img src="<?= URL_DIR ?>public/assets/images/articles.svg" alt="">LOG
                 OUT</a></span>
           </li>
 

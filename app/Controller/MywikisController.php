@@ -51,7 +51,7 @@ class MywikisController
             $wikiCreated = $wikiModel->insert('wikis', $wikiData);
 
             if ($wikiCreated) {
-                    $lastInsertedWiki = $wikiModel->lastInsertId();
+                    $lastInsertedWiki = $wikiModel->getLastInsertId();
                    
                     // Tags du formulaire
                     $tagsInput = isset($_POST['tag']) ? $_POST['tag'] : [];
@@ -76,11 +76,36 @@ class MywikisController
         }
     }
    
-
-    
     public function delete($id)
     {
         $wikis = new MywikiModel();
         $wikis->deleteWiki($id);
     }
+
+    public function updateWiki()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = $_POST['id'];
+        $name = $_POST['wiki'];
+        $content = $_POST['content'];
+
+        $Categorie_ID = $_POST['Categorie_ID'];
+        var_dump($name);
+        
+        $dataToUpdate = [
+            'wiki_title' => $name,
+            'content' => $content,
+            'Categorie_ID' => $Categorie_ID,
+        ];
+
+        $wikiModel = new MywikiModel();
+        var_dump($dataToUpdate);
+
+        $tags = isset($_POST['tag']) ? $_POST['tag'] : [];
+        $updateSuccess = $wikiModel->updateWikiTags($id, $dataToUpdate, $tags);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+
+    } 
+}
 }

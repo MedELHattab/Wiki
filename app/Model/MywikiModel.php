@@ -52,40 +52,16 @@ public function insert($table, $data)
         }
     }
 
-// public function CreateWiki($table, $data, $tags)
-//     {
-//         // var_dump($data);
-//         try {
-//             $this->create($table, $data);
-//             $wikiId = $this->pdo->lastInsertId();
-                              
-//         // Insert data into the 'wiki-tag' table
-//         $this->create($table, $data);
-// $wikiId = $this->pdo->lastInsertId();
+    public function getLastInsertId(){
+        return $this->pdo->lastInsertId();
+    }
 
-// // Add wiki-tag relationships
-// foreach ($tags as $tagId) {
-//             $addWikiTagQuery = "INSERT INTO wiki_tag (tag_id, wiki_id) VALUES (:tag_id, :wiki_id)";
-//             $addWikiTagStmt = $this->pdo->prepare($addWikiTagQuery);
-//             $addWikiTagStmt->bindParam(':tag_id', $tagId);
-//             $addWikiTagStmt->bindParam(':wiki_id', $wikiId);
-//             $addWikiTagStmt->execute();
-//             }
-    
-//     }
-
-            
-//          catch (PDOException $e) {
-//             echo "Error inserting wiki with tags: " . $e->getMessage();
-//         }
-
-// }
 
     public function deleteWiki($id)
     {
         $tableName = 'wikis';
         $this->delete($tableName, $id);
-        header('Location: ../../wikis');
+        header('Location: '. $_SERVER['HTTP_REFERER']);
     }
     public function editwiki($data, $id)
     {
@@ -94,4 +70,48 @@ public function insert($table, $data)
         $this->update($tableName, $data, $id);
         header("Location: $redirect");
     }
+
+    public function updateWikiTags($wiki_id, $dataToUpdate, $newTagIds)
+{
+    try {
+        // Début de la transaction
+        $this->pdo->beginTransaction();
+
+        // Étape 1 : Mise à jour des données de l'article
+        $updateQuery = "UPDATE wikis SET wiki_title = :wiki_title, content = :content, Categorie_ID = :Categorie_ID WHERE id = :id ";
+        $updateStatement = $this->pdo->prepare($updateQuery);
+        $updateStatement->bindParam(':id', $wiki_id);
+        $updateStatement->bindParam(':wiki_title', $dataToUpdate['name']);
+        $updateStatement->bindParam(':content', $dataToUpdate['content']);
+        $updateStatement->bindParam(':Categorie_ID', $dataToUpdate['Categorie_ID']);
+        $updateStatement->execute();
+
+        // Étape 2 : Suppression des enregistrements liés à cet article dans la table pivot
+        $deleteQuery = "DELETE FROM wiki_tag WHERE wiki_id = :wiki_id";
+        $deleteStatement = $this->pdo->prepare($deleteQuery);
+        $deleteStatement->bindParam(':article_id', $wiki_id);
+        $deleteStatement->execute();
+
+        // Étape 3 : Insertion des nouveaux enregistrements dans la table pivot
+        $insertQuery = "INSERT INTO wiki_tag (wiki_id, tag_id) VALUES (:wiki_id, :tag_id)";
+        $insertStatement = $this->pdo->prepare($insertQuery);
+        $insertStatement->bindParam(':wiki_id', $wiki_id);
+
+        // Lier :tag_id à l'intérieur de la boucle
+        foreach ($newTagIds as $tagId) {
+            $insertStatement->bindParam(':tag_id', $tagId);
+            $insertStatement->execute();
+        }
+
+        // Validation de la transaction
+        $this->pdo->commit();
+
+        return true;
+    } catch (PDOException $e) {
+        // En cas d'erreur, annulez la transaction
+        $this->pdo->rollBack();
+        echo "Erreur lors de la mise à jour des tags et de l'article : " . $e->getMessage();
+        return false;
+    }
+}
 }

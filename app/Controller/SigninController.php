@@ -22,6 +22,7 @@ class SigninController
                 // Store user information in session variables
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['email'] = $user['email'];
+                $_SESSION['role'] = $user['role'];
 
                 if ($user['role'] == 'admin') {
                     header("Location: ./dashboard");
