@@ -53,13 +53,13 @@
       </div>
     </div>
 
-    <!-- <div class="mb-6">
+    <div class="mb-6">
       <label for="categories" class="block text-gray-600 font-semibold mb-2">Tags</label>
       <div id="categories" class="px-4 py-2 border rounded-md bg-gray-200">
       <?php foreach ($tags as $tag) : ?>
                     <span class="bg-gray-100 text-gray-800  text-xs font-medium me-2 px-2.5 py-2 rounded-full dark:bg-gray-700 dark:text-white border border-gray-500"><?= $tag['tag'] ?></span>
                 <?php endforeach ?>
-      </div> -->
+      </div>
     </div>
 
   </div>

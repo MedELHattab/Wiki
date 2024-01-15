@@ -13,12 +13,9 @@ class WikipageController
 
 
         $wikis = new WikipageModel();
-        $wiki = $wikis->readWiki($id);
-        // $tags = $wikis->WikiTags($id);
-        // $viewData =[
-        //     'wiki' => $wiki,
-        //     'tags' => $tags,
-        // ];
+        $wiki = $wikis->Wikiinfo($id);
+        $wiki= $wiki[0];
+        $tags = $wikis->tagsWiki($id);
         include "../app/View/Wikipage.php";
     }
 }
